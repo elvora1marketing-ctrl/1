@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Satoshi', system-ui, sans-serif;
+    color: #1D1D1F;
+    background-color: #FAFAFA;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Satoshi', system-ui, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply py-20 md:py-24 lg:py-28 px-5 md:px-8;
+  }
+
+  .container-main {
+    @apply max-w-container mx-auto w-full;
+  }
+}
