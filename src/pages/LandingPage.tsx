@@ -23,15 +23,15 @@ function Hero() {
           variants={fadeInUp}
           className="text-4xl md:text-[56px] font-bold leading-[1.08] tracking-tight max-w-[700px] mx-auto"
         >
-          Bis zu 70% Förderung.{' '}
-          <span className="text-accent">Wir kümmern uns.</span>
+          Lassen Sie nicht bis zu{' '}
+          <span className="text-accent">21.000€ Fördergeld</span> liegen.
         </motion.h1>
         <motion.p
           variants={fadeInUp}
           className="mt-6 text-base md:text-xl text-secondary max-w-[560px] mx-auto leading-relaxed"
         >
-          Finden Sie in 2 Minuten heraus, wie viel Fördergeld Ihnen zusteht – und
-          lassen Sie uns den Antrag erledigen.
+          Die meisten Hausbesitzer verschenken Förderung – weil der Antrag zu
+          komplex ist. Wir holen jeden Euro für Sie raus.
         </motion.p>
         <motion.div variants={fadeInUp} className="mt-10">
           <Link to="/foerdercheck">
@@ -163,33 +163,144 @@ function WasWirdGefoerdert() {
   )
 }
 
-/* ─── Warum Förderking ─── */
+/* ─── Einwand-Killer: Warum nicht selbst machen? ─── */
+const selbstMachenItems = [
+  'Über 40 verschiedene Förderprogramme mit unterschiedlichen Voraussetzungen',
+  'Ein einziger Fehler im Antrag = Ablehnung oder weniger Förderung',
+  'Fristen, Nachweise und Formulare die sich ständig ändern',
+  'Kombinations-Regeln zwischen BAFA, KfW und Steuerbonus die kaum jemand kennt',
+  'Wochen Einarbeitung in Förderbedingungen statt Zeit für Ihr Projekt',
+  'Kein Ansprechpartner bei Rückfragen vom Amt',
+]
+
+const foerderkingItems = [
+  'Wir kennen jedes Programm, jeden Bonus, jede Kombination',
+  'Hunderte Anträge eingereicht – wir wissen genau was die Ämter wollen',
+  'Jeder Antrag wird doppelt geprüft bevor er rausgeht',
+  'Wir holen jeden Euro raus der Ihnen zusteht – kein Bonus vergessen',
+  'Sie liefern die Unterlagen, wir erledigen den Rest',
+  'Persönlicher Ansprechpartner von Anfang bis Auszahlung',
+]
+
+function EinwandKiller() {
+  return (
+    <Section bg="alt">
+      <SectionHeadline subtitle="Klar. Aber hier ist, warum die meisten es nicht tun – oder es bereuen.">
+        Kann ich den Antrag nicht einfach selbst stellen?
+      </SectionHeadline>
+
+      {/* Comparison columns */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+        {/* Self column */}
+        <Card className="!bg-[#F9F9F9]">
+          <h3 className="text-lg font-bold mb-4 text-secondary">Selbst machen</h3>
+          <ul className="space-y-3">
+            {selbstMachenItems.map((item) => (
+              <li key={item} className="flex items-start gap-3 text-sm text-secondary">
+                <span className="text-error shrink-0 mt-0.5">✕</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-5 text-xs text-secondary italic">
+            Das häufigste Ergebnis: weniger Förderung als möglich – oder Antrag abgelehnt.
+          </p>
+        </Card>
+
+        {/* Förderking column */}
+        <Card className="!border-2 !border-accent/20 !bg-accent-light/30">
+          <h3 className="text-lg font-bold mb-4 text-accent">Förderking macht's</h3>
+          <ul className="space-y-3">
+            {foerderkingItems.map((item) => (
+              <li key={item} className="flex items-start gap-3 text-sm">
+                <span className="text-accent shrink-0 mt-0.5">✓</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-5 text-xs font-semibold text-accent">
+            96% Bewilligungsquote. Durchschnittlich 3.200€ mehr Förderung als bei Selbstantragstellern.
+          </p>
+        </Card>
+      </div>
+
+      {/* Rechenbeispiel */}
+      <motion.div variants={fadeInUp}>
+        <Card className="!bg-accent-light/50 !border !border-accent/10 max-w-2xl mx-auto">
+          <h3 className="text-lg font-bold mb-4">Ein Beispiel das überzeugt:</h3>
+          <div className="space-y-3 text-sm leading-relaxed">
+            <p className="text-secondary">
+              Familie Schmidt wollte den BAFA-Antrag selbst stellen.
+            </p>
+            <p className="text-secondary">
+              Sie hätten 30% Grundförderung beantragt ={' '}
+              <span className="font-bold text-primary">9.000€</span>
+            </p>
+            <p className="text-secondary">
+              Was sie nicht wussten: Mit Klimabonus + Geschwindigkeitsbonus + iSFP standen ihnen 70% zu.
+            </p>
+            <div className="bg-white rounded-input p-4 mt-4">
+              <div className="flex items-center justify-between mb-1">
+                <span className="text-secondary">Selbst beantragt</span>
+                <span className="font-bold text-lg">9.000€</span>
+              </div>
+              <div className="flex items-center justify-between mb-1">
+                <span className="text-accent font-semibold">Förderking-Ergebnis</span>
+                <span className="font-bold text-2xl text-accent">21.000€</span>
+              </div>
+              <div className="border-t border-border mt-3 pt-3 flex items-center justify-between">
+                <span className="text-secondary text-xs">Ersparnis durch uns</span>
+                <span className="font-bold text-accent">12.000€ – für 299€ Servicegebühr</span>
+              </div>
+            </div>
+          </div>
+          <p className="mt-4 text-xs text-secondary">
+            Beispielrechnung basierend auf typischem Förderfall.
+          </p>
+        </Card>
+      </motion.div>
+
+      {/* Closing statement + CTA */}
+      <motion.div variants={fadeInUp} className="text-center mt-12">
+        <p className="text-lg md:text-xl font-semibold max-w-2xl mx-auto mb-8">
+          Unser Job ist es, dass Sie keinen Cent auf dem Tisch liegen lassen.
+          Wir machen das jeden Tag – Sie nur einmal.
+        </p>
+        <Link to="/foerdercheck">
+          <Button size="large">Kostenlos berechnen was Ihnen zusteht →</Button>
+        </Link>
+      </motion.div>
+    </Section>
+  )
+}
+
+/* ─── Warum Förderking? (Trust & Expertise) ─── */
 const usps = [
   {
     icon: '🎓',
     title: 'Zertifizierter Energieberater',
-    desc: 'Keine anonyme Plattform. Echte Expertise durch zertifizierte Energieberatung nach §88 GEG.',
+    desc: 'Keine anonyme Plattform. Echte Expertise durch zertifizierte Energieberatung nach §88 GEG. BAFA-gelistet.',
+  },
+  {
+    icon: '📋',
+    title: 'Hunderte Anträge eingereicht',
+    desc: 'Wir kennen die häufigsten Fehler, die typischen Rückfragen und die versteckten Bonus-Möglichkeiten – aus Erfahrung.',
   },
   {
     icon: '💻',
     title: '100% digital',
-    desc: 'Kein Papierkram, keine Termine. Alles online – von der Analyse bis zur Einreichung.',
-  },
-  {
-    icon: '💰',
-    title: 'Maximale Förderung',
-    desc: 'Wir kennen jeden Bonus und jede Kombinationsmöglichkeit. Sie bekommen das Maximum.',
+    desc: 'Kein Papierkram, keine Termine vor Ort. Alles online – von der Analyse bis zur Einreichung.',
   },
   {
     icon: '🔒',
-    title: 'Transparent & fair',
-    desc: 'Fixpreise ohne versteckte Kosten. Sie zahlen erst, wenn Sie uns beauftragen.',
+    title: 'Fixpreis, kein Risiko',
+    desc: '299€ oder 799€. Keine versteckten Kosten. Fördercheck ist kostenlos. Sie zahlen erst wenn Sie beauftragen.',
   },
 ]
 
 function WarumFoerderking() {
   return (
-    <Section bg="alt">
+    <Section>
       <SectionHeadline>Warum Förderking?</SectionHeadline>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {usps.map((usp) => (
@@ -242,7 +353,7 @@ const pricingPlans = [
 
 function Preise() {
   return (
-    <Section id="preise">
+    <Section id="preise" bg="alt">
       <SectionHeadline subtitle="Keine versteckten Kosten. Zahlen Sie erst wenn Sie beauftragen.">
         Transparente Preise
       </SectionHeadline>
@@ -289,7 +400,7 @@ function Preise() {
 /* ─── FAQ Section ─── */
 function FAQSection() {
   return (
-    <Section bg="alt">
+    <Section>
       <SectionHeadline>Häufige Fragen</SectionHeadline>
       <FAQ />
     </Section>
@@ -301,17 +412,20 @@ function FinalCTA() {
   return (
     <Section bg="accent-light" className="!py-24 md:!py-32">
       <div className="text-center">
-        <motion.h2 variants={fadeInUp} className="text-3xl md:text-[40px] font-bold">
-          Lassen Sie kein Fördergeld liegen.
+        <motion.h2 variants={fadeInUp} className="text-3xl md:text-[40px] font-bold leading-tight max-w-2xl mx-auto">
+          Jedes Jahr gehen Millionen Euro Fördergelder zurück an den Staat. Ihres auch?
         </motion.h2>
-        <motion.p variants={fadeInUp} className="mt-4 text-secondary text-base md:text-lg">
-          Starten Sie jetzt Ihren kostenlosen Fördercheck.
+        <motion.p variants={fadeInUp} className="mt-4 text-secondary text-base md:text-lg max-w-xl mx-auto">
+          2 Minuten Fördercheck. Kostenlos. Unverbindlich. Und Sie wissen, was Ihnen zusteht.
         </motion.p>
         <motion.div variants={fadeInUp} className="mt-8">
           <Link to="/foerdercheck">
-            <Button size="large">Förderung berechnen →</Button>
+            <Button size="large">Jetzt meine Förderung berechnen →</Button>
           </Link>
         </motion.div>
+        <motion.p variants={fadeInUp} className="mt-4 text-sm text-secondary">
+          Bereits über 500 Hausbesitzer haben ihren Förderanspruch geprüft.
+        </motion.p>
       </div>
     </Section>
   )
@@ -327,6 +441,7 @@ export default function LandingPage() {
       <HowItWorks />
       <RechnerCTA />
       <WasWirdGefoerdert />
+      <EinwandKiller />
       <WarumFoerderking />
       <Preise />
       <FAQSection />
